@@ -37,7 +37,7 @@ basic.forever(function () {
         basic.showIcon(IconNames.Surprised)
         basic.showIcon(IconNames.SmallHeart)
         basic.showIcon(IconNames.Happy)
-        basic.showString("It is now restarting.")
+        basic.showString("restarting.")
         basic.pause(5000)
         game.setScore(0)
     }
@@ -59,4 +59,6 @@ basic.forever(function () {
 basic.forever(function () {
     music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
     music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
+    music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
+    music.play(music.stringPlayable("C5 C A C G D A C ", 120), music.PlaybackMode.UntilDone)
 })
