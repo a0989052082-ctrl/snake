@@ -1,17 +1,11 @@
-input.onGesture(Gesture.TiltLeft, function () {
-    Snake.change(LedSpriteProperty.X, -1)
-})
-input.onGesture(Gesture.ScreenDown, function () {
-    Snake.change(LedSpriteProperty.Y, 1)
+input.onButtonPressed(Button.A, function () {
+    Snake.turn(Direction.Left, 90)
 })
 function sp () {
     cake.set(LedSpriteProperty.Brightness, 0.1)
 }
-input.onGesture(Gesture.ScreenUp, function () {
-    Snake.change(LedSpriteProperty.Y, -1)
-})
-input.onGesture(Gesture.TiltRight, function () {
-    Snake.change(LedSpriteProperty.X, 1)
+input.onButtonPressed(Button.B, function () {
+    Snake.turn(Direction.Right, 90)
 })
 function l (sprite: game.LedSprite) {
     Snake.set(LedSpriteProperty.Brightness, 100)
@@ -26,8 +20,6 @@ game.setLife(100)
 Snake.set(LedSpriteProperty.Blink, 0)
 Snake.set(LedSpriteProperty.Blink, 0)
 music.setVolume(255)
-record.startRecording(record.BlockingState.Blocking)
-record.playAudio(record.BlockingState.Blocking)
 basic.forever(function () {
     if (cake.isDeleted()) {
         cake = game.createSprite(randint(1, 3), randint(1, 3))
@@ -61,4 +53,8 @@ basic.forever(function () {
     music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
     music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
     music.play(music.stringPlayable("C5 C A C G D A C ", 120), music.PlaybackMode.UntilDone)
+})
+basic.forever(function () {
+    Snake.move(1)
+    basic.pause(500)
 })
